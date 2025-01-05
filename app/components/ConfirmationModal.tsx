@@ -52,7 +52,7 @@ export default function ConfirmationModal({
           <div className="mt-6 flex justify-end gap-4">
             <Button
               onClick={() => (onOkClick && onOkClick()) || setIsOpen(false)}
-              className="font-medium transition duration-300"
+              className="font-medium transition duration-300 bg-indigo-500 hover:bg-indigo-800"
             >
               Ok
             </Button>
