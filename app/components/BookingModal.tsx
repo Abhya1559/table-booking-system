@@ -33,14 +33,12 @@ export default function BookingModal() {
   const [errors, setErrors] = useState<FormError>({});
   const validate = (): FormError => {
     const newErrors: FormError = {};
-    const stringRegex = /^[a-zA-Z]+$/;
     const intRegex = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
     if (!formData.date) newErrors.date = "Date is required";
     if (!formData.time) newErrors.time = "Time is required";
     if (!formData.guest || formData.guest <= 0)
       newErrors.guest = "Number of guest must be greater than 0";
     if (!formData.name) newErrors.name = "name is required";
-    if (!stringRegex.test(formData.name)) newErrors.name = "name is not valid";
     if (!formData.contact) newErrors.contact = "contact is required";
     if (!intRegex.test(formData.contact))
       newErrors.contact = "Mobile number is not valid";
