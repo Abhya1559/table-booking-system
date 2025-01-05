@@ -174,7 +174,7 @@ export default function DateTime({ setDateTime, open, setOpen }: Props) {
               <Button
                 type="button"
                 variant="outline"
-                className="text-red-500 border-red-500"
+                className="text-red-500 border-red-500 hover:text-red-500"
                 onClick={() => setOpen(false)}
               >
                 Close
@@ -182,7 +182,7 @@ export default function DateTime({ setDateTime, open, setOpen }: Props) {
               <Button
                 type="button"
                 variant="outline"
-                className="text-blue-500 border-blue-500"
+                className="text-indigo-500 border-blue-500 hover:text-indigo-500"
                 disabled={!(date && selectedTimeSlot)}
                 onClick={handlePick}
               >
