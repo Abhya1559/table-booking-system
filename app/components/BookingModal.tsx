@@ -176,6 +176,7 @@ export default function BookingModal() {
                     Choose Date and Time Slot
                   </Button>
                 )}
+
                 <DateTime
                   open={slotModalOpen}
                   setOpen={setSlotModalOpen}

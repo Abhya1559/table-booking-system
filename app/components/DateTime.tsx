@@ -105,70 +105,70 @@ export default function DateTime({ setDateTime, open, setOpen }: Props) {
       {/* <DialogTrigger>
         
       </DialogTrigger> */}
-      <DialogContent className="z-[99] max-w-[90%] sm:max-w-lg lg:max-w-2xl">
+      <DialogContent className="z-[99] max-w-[90%] sm:max-w-lg lg:max-w-2xl overflow-auto max-h-[600px]">
         <DialogHeader>
           <DialogTitle>Book The Table</DialogTitle>
-          <DialogDescription>
-            <div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-baseline mt-5">
-                {/* Calendar */}
-                <div className="flex flex-col gap-3 items-baseline">
-                  <div className="flex items-center gap-2">
-                    <CalendarDays className="text-black-400 h-5 w-5" />
-                    select Date
-                  </div>
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    disabled={isPastDay}
-                    onSelect={setDate}
-                    className="rounded-md border"
-                  />
+          {/* <DialogDescription></DialogDescription> */}
+
+          <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-baseline mt-5">
+              {/* Calendar */}
+              <div className="flex flex-col gap-3 items-baseline">
+                <div className="flex items-center gap-2">
+                  <CalendarDays className="text-black-400 h-5 w-5" />
+                  Select Date
                 </div>
-                {/* timeslot */}
-                <div className="mt-3 ">
-                  <h2 className="flex gap-2 items-center">
-                    <Clock className="text-black-500 h-5 w-5 mb-2" />
-                    Select Time
-                  </h2>
-                  {!timeSlot.length && (
-                    <div>Choose date to get the available time slots</div>
-                  )}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 border rounded-lg p-3">
-                    {timeSlot.length &&
-                      timeSlot.map((slot, i) =>
-                        slot.available ? (
-                          <button
-                            key={i}
-                            onClick={() =>
-                              slot.available
-                                ? setSelectedTimeSlot(slot.time)
-                                : null
-                            }
-                            className={`p-2 border text-center cursor-pointer hover:bg-blue-500 rounded-full hover:text-white ${
-                              slot.time == selectedTimeSlot
-                                ? "bg-blue-500 text-white"
-                                : ""
-                            }`}
-                          >
-                            {slot.time}
-                          </button>
-                        ) : (
-                          <button
-                            key={i}
-                            className={`p-2 border text-center rounded-full text-gray-400 border-gray-100 cursor-not-allowed`}
-                          >
-                            {slot.time}
-                          </button>
-                        )
-                      )}
-                  </div>
+                <Calendar
+                  mode="single"
+                  selected={date}
+                  disabled={isPastDay}
+                  onSelect={setDate}
+                  className="rounded-md border"
+                />
+              </div>
+              {/* timeslot */}
+              <div className="mt-3 ">
+                <h2 className="flex gap-2 items-center">
+                  <Clock className="text-black-500 h-5 w-5 mb-2" />
+                  Select Time
+                </h2>
+                {!timeSlot.length && (
+                  <div>Choose date to get the available time slots</div>
+                )}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 border rounded-lg p-3 text-sm">
+                  {timeSlot.length &&
+                    timeSlot.map((slot, i) =>
+                      slot.available ? (
+                        <button
+                          key={i}
+                          onClick={() =>
+                            slot.available
+                              ? setSelectedTimeSlot(slot.time)
+                              : null
+                          }
+                          className={`p-2 border text-center cursor-pointer hover:bg-blue-500 rounded-full hover:text-white ${
+                            slot.time == selectedTimeSlot
+                              ? "bg-blue-500 text-white"
+                              : ""
+                          }`}
+                        >
+                          {slot.time}
+                        </button>
+                      ) : (
+                        <button
+                          key={i}
+                          className={`p-2 border text-center rounded-full text-gray-400 border-gray-100 cursor-not-allowed`}
+                        >
+                          {slot.time}
+                        </button>
+                      )
+                    )}
                 </div>
               </div>
             </div>
-          </DialogDescription>
+          </div>
         </DialogHeader>
-        <DialogFooter className="justify-end">
+        <DialogFooter className="justify-end gap-3">
           <DialogClose asChild>
             <>
               <Button
